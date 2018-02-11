@@ -239,7 +239,6 @@ public final class LineageNotificationLights {
             boolean screenActive, int suppressedEffects) {
         final boolean forcedOn = isForcedOn(n);
         final int forcedBrightness = getForcedBrightness(n);
-        final boolean isDefaultLights = (n.defaults & Notification.DEFAULT_LIGHTS) != 0;
         final boolean suppressScreenOff =
                 (suppressedEffects & SUPPRESSED_EFFECT_SCREEN_OFF) != 0;
         final boolean suppressScreenOn =
@@ -254,7 +253,6 @@ public final class LineageNotificationLights {
                     + " suppressedEffects=" + suppressedEffects
                     + " forcedOn=" + forcedOn
                     + " forcedBrightness=" + forcedBrightness
-                    + " isDefaultLights=" + isDefaultLights
                     + " suppressScreenOff=" + suppressScreenOff
                     + " suppressScreenOn=" + suppressScreenOn
                     + " mCanAdjustBrightness=" + mCanAdjustBrightness
@@ -320,7 +318,7 @@ public final class LineageNotificationLights {
                     ledValuesPkg.getOnMs() : mDefaultNotificationLedOn);
             ledValues.setOffMs(ledValuesPkg.getOffMs() >= 0 ?
                     ledValuesPkg.getOffMs() : mDefaultNotificationLedOff);
-        } else if (isDefaultLights) {
+        } else if (ledValues.getColor() == 0) {
             ledValues.setColor(generateLedColorForPackageName(packageName));
             ledValues.setOnMs(mDefaultNotificationLedOn);
             ledValues.setOffMs(mDefaultNotificationLedOff);
