@@ -1999,6 +1999,15 @@ public final class LineageSettings {
                 sNonNegativeIntegerValidator;
 
         /**
+         * List of long-screen apps.
+         */
+        public static final String LONG_SCREEN_APPS = "long_screen_apps";
+
+        /** @hide */
+        public static final Validator LONG_SCREEN_APPS_VALIDATOR =
+                sAlwaysTrueValidator;
+
+        /**
          * I can haz more bukkits
          * @hide
          */
@@ -2284,6 +2293,8 @@ public final class LineageSettings {
                     DISPLAY_PICTURE_ADJUSTMENT_VALIDATOR);
             VALIDATORS.put(ACCELEROMETER_ROTATION_ANGLES,
                     ACCELEROMETER_ROTATION_ANGLES_VALIDATOR);
+            VALIDATORS.put(LONG_SCREEN_APPS,
+                    LONG_SCREEN_APPS_VALIDATOR);
             VALIDATORS.put(__MAGICAL_TEST_PASSING_ENABLER,
                     __MAGICAL_TEST_PASSING_ENABLER_VALIDATOR);
         };
